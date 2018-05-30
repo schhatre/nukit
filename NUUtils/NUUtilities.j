@@ -274,6 +274,23 @@ function _IPAddress(string, canBeNull, canBeAll)
     return success ? null : "Not a valid address";
 }
 
+function _splitAndValidateIPAddress(string)
+{
+    if (!string)
+        return;
+
+    var IPAddressArray = string.split(",");
+    var successArray =[];
+    if (IPAddressArray && IPAddressArray.length == 2){
+            for (var i=0; i<IPAddressArray.length;i++){
+                successArray[i]= !_stringNotEmpty(string) && validateIPAddress(string);
+            }
+            var success = successArray[0] && successArray[1]
+        }
+
+    return success ? null : "Not a valid address";
+}
+
 function _netmaskBetween(string, minValue, maxValue)
 {
     if (!string || string.indexOf('/') < 0)
