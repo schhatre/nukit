@@ -283,7 +283,7 @@ function _splitAndValidateIPAddress(string)
     var successArray =[];
     if (IPAddressArray && IPAddressArray.length == 2){
             for (var i=0; i<IPAddressArray.length;i++){
-                successArray[i]= !_stringNotEmpty(string) && validateIPAddress(string);
+                successArray[i]= !_stringNotEmpty(IPAddressArray[i]) && validateIPAddress(IPAddressArray[i]);
             }
             var success = successArray[0] && successArray[1]
         }
